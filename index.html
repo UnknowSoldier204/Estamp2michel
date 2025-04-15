@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Tienda de Ropa</title>
+  <!-- Agregar fuente manuscrita -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #222; /* Fondo oscuro para resaltar el neón */
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      font-family: 'Dancing Script', cursive;
+      font-size: 5em;
+      color: #fff; /* Blanco */
+      text-shadow: 
+        0 0 10px rgba(255, 0, 0, 0.8), /* Rojo brillante */
+        0 0 20px rgba(255, 0, 0, 0.7),
+        0 0 30px rgba(255, 0, 0, 0.6),
+        0 0 40px rgba(255, 0, 0, 0.5), /* Efecto de luz */
+        0 0 50px rgba(255, 0, 0, 0.4),
+        0 0 60px rgba(255, 0, 0, 0.3);
+      /* Efecto de texto brillando como un letrero de neón */
+    }
+    .productos {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); /* 3 columnas */
+      gap: 20px; /* espacio entre productos */
+      max-width: 750px;
+      margin: 0 auto;
+    }
+    .producto {
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 15px;
+      text-align: center;
+      background-color: #fff;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+    .producto img {
+      max-width: 100%;
+      border-radius: 5px;
+      cursor: pointer; /* Cambia el cursor para indicar que la imagen es interactiva */
+    }
+    .precio {
+      color: green;
+      font-weight: bold;
+    }
+
+    /* Estilo para la ventana emergente (lightbox) */
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      padding-top: 100px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      overflow: auto;
+    }
+    .lightbox img {
+      margin: auto;
+      display: block;
+      max-width: 80%;
+      max-height: 80%;
+    }
+    .lightbox span {
+      position: absolute;
+      top: 15px;
+      right: 35px;
+      color: #f1f1f1;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Estampa2Michel</h1>
+  <div class="productos">
+    <div class="producto">
+      <img src="https://i.postimg.cc/hGhVdGsm/Mi-Producto.jpg" alt="Taza retrato Van gogh" onclick="openLightbox(this)">
+      <h2>Taza retrato Van gogh</h2>
+      <p class="precio">$199 MXN</p>
+      <button>Agregar al carrito</button>
+    </div>
+    <div class="producto">
+      <img src="https://i.postimg.cc/g08Xb62G/Mi-Producto2.jpg" alt="Estampados para negocios" onclick="openLightbox(this)">
+      <h2>Estampados para negocios</h2>
+      <p class="precio">$150 MXN</p>
+      <button>Agregar al carrito</button>
+    </div>
+    <div class="producto">
+      <img src="https://i.postimg.cc/qvW5bgRs/Mi-Producto3.jpg" alt="Estampados para mandiles" onclick="openLightbox(this)">
+      <h2>Estampados para mandiles</h2>
+      <p class="precio">$399 MXN</p>
+      <button>Agregar al carrito</button>
+    </div>
+    <div class="producto">
+      <img src="https://via.placeholder.com/150" alt="Falda de Mezclilla" onclick="openLightbox(this)">
+      <h2>Falda de Mezclilla</h2>
+      <p class="precio">$299 MXN</p>
+      <button>Agregar al carrito</button>
+    </div>
+    <div class="producto">
+      <img src="https://via.placeholder.com/150" alt="Camisa a Cuadros" onclick="openLightbox(this)">
+      <h2>Camisa a Cuadros</h2>
+      <p class="precio">$319 MXN</p>
+      <button>Agregar al carrito</button>
+    </div>
+    <div class="producto">
+      <img src="https://via.placeholder.com/150" alt="Pantalones Cargo" onclick="openLightbox(this)">
+      <h2>Pantalones Cargo</h2>
+      <p class="precio">$459 MXN</p>
+      <button>Agregar al carrito</button>
+    </div>
+  </div>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox">
+    <span onclick="closeLightbox()">×</span>
+    <img id="lightbox-image" src="">
+  </div>
+
+  <script>
+    function openLightbox(imageElement) {
+      var lightbox = document.getElementById('lightbox');
+      var lightboxImage = document.getElementById('lightbox-image');
+      lightbox.style.display = 'block';
+      lightboxImage.src = imageElement.src; // Asigna la imagen clickeada a la ventana emergente
+    }
+
+    function closeLightbox() {
+      var lightbox = document.getElementById('lightbox');
+      lightbox.style.display = 'none'; // Cierra la ventana emergente
+    }
+  </script>
+
+</body>
+</html>
